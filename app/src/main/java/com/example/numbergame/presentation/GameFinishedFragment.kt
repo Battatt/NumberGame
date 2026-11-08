@@ -56,7 +56,7 @@ class GameFinishedFragment : Fragment() {
 
     private fun parseArgs() {
         gameResult = requireNotNull(
-            BundleCompat.getSerializable(
+            BundleCompat.getParcelable(
                 requireArguments(),
                 KEY_GAME_RESULT,
                 GameResult::class.java
@@ -77,7 +77,7 @@ class GameFinishedFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             return GameFinishedFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_GAME_RESULT, gameResult)
+                    putParcelable(KEY_GAME_RESULT, gameResult)
                 }
             }
         }

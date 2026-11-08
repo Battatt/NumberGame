@@ -66,7 +66,7 @@ class GameFragment : Fragment() {
 
     private fun parseArgs() {
         level = requireNotNull(
-            BundleCompat.getSerializable(
+            BundleCompat.getParcelable(
                 requireArguments(),
                 KEY_LEVEL,
                 Level::class.java
@@ -81,7 +81,7 @@ class GameFragment : Fragment() {
         fun newInstance(level: Level): GameFragment {
             return GameFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_LEVEL, level)
+                    putParcelable(KEY_LEVEL, level)
                 }
             }
         }
