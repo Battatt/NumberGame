@@ -13,17 +13,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.numbergame.R
 import com.example.numbergame.databinding.FragmentGameBinding
 import com.example.numbergame.domain.entity.GameResult
-import com.example.numbergame.domain.entity.GameSettings
 import com.example.numbergame.domain.entity.Level
 
 class GameFragment : Fragment() {
 
     private var _binding: FragmentGameBinding? = null
+    private val viewModelFactory: GameViewModelFactory by lazy {
+        GameViewModelFactory(level, requireActivity().application)
+    }
     private val viewModel: GameViewModel by lazy {
-        ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-        )[GameViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[GameViewModel::class.java]
     }
     private val binding: FragmentGameBinding
         get() = _binding ?: throw RuntimeException("FragmentGameBinding is null")
@@ -58,7 +57,6 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
-        viewModel.startGame(level)
         setClickListenersToOptions()
     }
 
