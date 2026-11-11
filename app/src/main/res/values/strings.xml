@@ -24,5 +24,5 @@
     <string name="right_answers">Правильных ответов %1$s из %2$s необходимых</string>
     <string name="required_percentage">Необходимый процент правильных ответов: %s</string>
     <string name="required_score">Необходимое количество правильных ответов: %s</string>
-    <string name="progress_answers">Правильных ответов %1$s (минимум %2$s)</string>
+    <string name="progress_answers">Правильных ответов %d (минимум %d)</string>
 </resources>
