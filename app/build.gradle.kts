@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.androidx.navigation.safeargs.kotlin)
+    alias(libs.plugins.legacy.kapt)
 }
 
 android {
@@ -35,7 +36,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
 }
 
